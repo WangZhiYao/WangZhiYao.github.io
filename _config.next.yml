@@ -611,7 +611,7 @@ valine:
   enable: true
   appId: XwFd2xqO94X9mgMuCW2zoLqS-9Nh9j0Va
   appKey: Vxr6vOP6K5y3d6IXiIt4P4ly
-  serverURLs: # When the custom domain name is enabled, fill it in here
+  serverURLs: https://xwfd2xqo.lc-cn-e1-shared.com # When the custom domain name is enabled, fill it in here
   placeholder: Just go go # Comment box placeholder
   avatar: mm # Gravatar style
   meta: [nick, mail] # Custom comment header
