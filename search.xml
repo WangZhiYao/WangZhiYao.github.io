@@ -173,38 +173,38 @@
 <li>4月9日到达广州白云机场，准备国内派送</li>
 <li>4月10日签收</li>
 </ol>
-<h2 id="Round-1"><a href="#Round-1" class="headerlink" title="Round 1"></a>Round 1</h2><p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200410_191257.webp" alt="签收"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200410_193534.webp" alt="开箱"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200410_193551.webp" alt="开箱"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200410_193702.webp" alt="开箱"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200410_193742.webp" alt="开箱"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200410_194406.webp" alt="开箱"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200410_194440.webp" alt="注意美版的电源插头"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200410_195443.webp" alt="机箱内部-侧面"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200410_200213.webp" alt="机箱内部-正面"></p>
+<h2 id="Round-1"><a href="#Round-1" class="headerlink" title="Round 1"></a>Round 1</h2><p><img data-src="https://img.339.im/images/2020/11/28/20200410_191257.webp" alt="签收"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200410_193534.webp" alt="开箱"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200410_193551.webp" alt="开箱"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200410_193702.webp" alt="开箱"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200410_193742.webp" alt="开箱"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200410_194406.webp" alt="开箱"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200410_194440.webp" alt="注意美版的电源插头"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200410_195443.webp" alt="机箱内部-侧面"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200410_200213.webp" alt="机箱内部-正面"></p>
 <p>同时我还买了一块三星 860EVO 250G 用来做系统盘 和东芝 P300 2T 用来存数据之类的：</p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200411_014937.webp" alt="Samsung 860 EVO 250G 与 东芝P300 2T"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200411_014937.webp" alt="Samsung 860 EVO 250G 与 东芝P300 2T"></p>
 <p>装上之后发现，2.5寸的三星SSD插在1号硬盘位也就是左上角完全是靠接口卡住的，而我又有强迫症，这样不是长久之计，请注意由于硬盘接口在左边，所以普通的硬盘托架是没有用的，因为那玩意是把硬盘固定在中间，实际上要在硬盘架的左边：</p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200411_014624.webp" alt="4个硬盘位"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200411_014624.webp" alt="4个硬盘位"></p>
 <p>然后我就又买了一个2.5寸转3.5寸的托架，同时这个电源插口是美国标准，于是又买了个电源插头转换器：</p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200411_012429.webp" alt="硬盘支架与电源插头转换器"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200411_012429.webp" alt="硬盘支架与电源插头转换器"></p>
 <p>好在这个电源跟以前的笔记本电源是一样的，分为插头跟变压器，刚好室友的笔记本也是这样的，所以就借了室友的笔记本电源插头来使用一下，然后我又翻出来一根DP线，跟我的显示器连接起来，然后沙雕的事情就发生了：</p>
 <p><strong>DP口没有输出</strong></p>
 <p><strong>DP口没有输出</strong></p>
 <p><strong>DP口没有输出</strong></p>
 <p>然后我又买了根 HDMI 转 VGA 的线：</p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200411_020715.webp" alt="实际上买错了，不应该是 HDMI 转 VGA，应该是 VGA 转 HDMI 转换头"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200411_020715.webp" alt="实际上买错了，不应该是 HDMI 转 VGA，应该是 VGA 转 HDMI 转换头"></p>
 <p>从说明书中可以得知 Gen10 Plus 中 CPU 为 E-2224 的这款没有核显，同时自带的 DP 口为1.0：</p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200411_021301.webp" alt="Gen10 电子说明书"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200411_021301.webp" alt="Gen10 电子说明书"></p>
 <p>DP1.0版本的输出1080P都悬，更何况我打算在上面装 Plex 当 HTPC，所以我又下单买了一块 GT 1030 亮机卡（其实现在想起来完全没必要，我用不上硬解）：</p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200411_012503.webp" alt="技嘉 GT 1030"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200411_012503.webp" alt="技嘉 GT 1030"></p>
 <p>所以目前状况就卡在了机都没点亮的状态下…</p>
 <p>等后续快递都到了再继续折腾</p>
 <h2 id="Round-2"><a href="#Round-2" class="headerlink" title="Round 2"></a>Round 2</h2><p>今天显卡到了，GT 1030 半高亮机卡，拆开后盖，取下主板上的PCI-E扩展板，将这个半高显卡插进去再装回到主板上：</p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200412_005528.webp" alt="这个半高显卡的散热鳍片真的很锋利"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200412_005634.webp" alt="将显卡插入 PCI-E 槽"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200412_005756.webp" alt="装完的样子"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200412_010202.webp" alt="机箱背面"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200412_005528.webp" alt="这个半高显卡的散热鳍片真的很锋利"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200412_005634.webp" alt="将显卡插入 PCI-E 槽"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200412_005756.webp" alt="装完的样子"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200412_010202.webp" alt="机箱背面"></p>
 <p>关于这个 PCI-E 槽可以有很多选择：万兆网卡，启动盘等等，具体可以看下面这个视频，里面介绍了这个 PCI-E 口可以怎么玩，以及在合理的情况下 CPU 可以更换成什么：</p>
 <iframe width="560" height="315" src="https://www.youtube.com/embed/x-_CyKuJz9s" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
@@ -216,18 +216,18 @@
 <p>就目前为止两个让我迷惑的点：1.主板上自带的DP口到底是做什么用的，2.我上了独显之后为什么离开 BIOS 屏幕就黑了但是有视频输出</p>
 <p>没办法，没有 VGA 的线，一切只有等明天 VGA 的线到了再看到底是怎么回事.</p>
 <h2 id="Round-3"><a href="#Round-3" class="headerlink" title="Round 3"></a>Round 3</h2><p>由于之前买错了，买了根 HDMI 转 VGA 线，用不了，实际上应该买的是 VGA-HDMI 的转接头，所以前面买的线换货耽误了一天，刚好与硬盘托架一起到了：</p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200413_234052.webp" alt="应该是用 VGA 转 HDMI 转接器"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200413_201633.webp" alt="使用硬盘托架固定 SSD 之后"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200413_234052.webp" alt="应该是用 VGA 转 HDMI 转接器"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200413_201633.webp" alt="使用硬盘托架固定 SSD 之后"></p>
 <p>然后使用 VGA-HDMI 转接头，连接 HDMI 线到我的显示器，然后开机，终于，亮了，然后进入 Intelligent Provisioning , 啊 ！！！</p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200413_202836.webp" alt="成功亮机"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200413_202836.webp" alt="成功亮机"></p>
 <p>然后就是很沙雕的问题，不知道是网的原因还是什么，反正一直装系统失败，然后我就去 HPE 官网下了个定制的 VMware ESXI 放到U盘然后插到前面的 USB 口，通过 Intelligent Provisioning 使用 U 盘安装，果然一下就 OK 了.</p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200413_221016.webp"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200413_205355.webp" alt="使用 Intelligent Provisioning 安装 VMware ESXI"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200413_220744.webp" alt="VMware ESXI 安装中"></p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200413_224954.webp" alt="VMware ESXI 安装完毕"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200413_221016.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200413_205355.webp" alt="使用 Intelligent Provisioning 安装 VMware ESXI"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200413_220744.webp" alt="VMware ESXI 安装中"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200413_224954.webp" alt="VMware ESXI 安装完毕"></p>
 <p>VMware ESXI 安装完成.</p>
 <p>在安装的过程中需要输入密码，密码必须包含大小写数字与符号，其中符号这个用 <code>.</code> 通过不了，但是用 <code>!</code> 就可以，这个很迷…</p>
-<p><img data-src="/images/articles/hpe-proliant-microserver-gen10-plus/20200413_232214.webp" alt="VMware ESXI 后台"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200413_232214.webp" alt="VMware ESXI 后台"></p>
 <p>暂时折腾完毕。</p>
 ]]></content>
       <categories>
@@ -241,39 +241,39 @@
     <title>Microserver Gen10 Plus 安装 Proxmox VE</title>
     <url>/articles/microserver-gen10-plus-proxmox-ve/</url>
     <content><![CDATA[<h2 id="1-下载镜像"><a href="#1-下载镜像" class="headerlink" title="1.下载镜像"></a>1.下载镜像</h2><p>首先是去 Proxmox VE 的 <a href="https://www.proxmox.com/en/downloads/category/iso-images-pve">官网</a> 下载镜像</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/official-website.webp" alt="Proxmox VE 官网"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/official-website.webp" alt="Proxmox VE 官网"></p>
 <a id="more"></a>
 
 <h2 id="2-制作启动盘"><a href="#2-制作启动盘" class="headerlink" title="2.制作启动盘"></a>2.制作启动盘</h2><p>使用 Rufus 或者 UltraISO 或者 balenaEtcher 都行，将镜像刷进 U盘 内，制作成启动盘。</p>
 <h2 id="3-安装"><a href="#3-安装" class="headerlink" title="3.安装"></a>3.安装</h2><p>建议将 U盘 插在 Gen10 Plus 前面板的 USB 口上，这样速度会快一点（由于没有买 iLO Enablement Kit，所以我把机器搬到桌子上连到显示器上，全程只能拍屏幕），接着启动电源，等到进入这个界面的时候按 F11，到启动菜单，选择你的 U盘 启动：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211154.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200420_211154.webp"></p>
 <p>然后就进入 Proxmox VE 的安装界面，选择第一个 <strong>Install Proxmox VE</strong> ：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_214324.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200420_214324.webp"></p>
 <p>点击右下角的 <strong>I agree</strong> :</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211307.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200420_211307.webp"></p>
 <p>然后选择要安装到哪个硬盘，在这里可以点击旁边的 <strong>Options</strong> 按钮设置成 zfs 做软 raid ：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211320.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200420_211320.webp"></p>
 <p>打开 <strong>Options</strong>，里面默认是 **ext4 **:</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211340.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200420_211340.webp"></p>
 <p>可以点击下拉菜单选择其他：</p>
 <blockquote>
 <p>ext3, ext4, xfs, raid 0, raid 1, raid 10, raidz 1, raidz 2, raidz 3</p>
 </blockquote>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211359.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200420_211359.webp"></p>
 <p>再接下来就是填写 国家与时区还有键盘布局，国家填好之后时区会自动跟着变，键盘布局一般不需要改：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211433.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200420_211433.webp"></p>
 <p>再接下来就是设置 root 的密码以及邮箱：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211450.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200420_211450.webp"></p>
 <p>再是到这里设置 网络，<strong>网卡要选择 开头为 eno 的</strong>，根据你网线插在哪个口选择对应的，千万不要选错，不然进不了管理后台(坑了我很久，我还以为是我设置错了)，再接着设置 主机名，ip，掩码，网关与dns等：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_214444.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200420_214444.webp"></p>
 <p>最后是确认界面，确认无误之后，就点击 <strong>Install</strong> 进行安装：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_214541.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200420_214541.webp"></p>
 <p>安装中：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211709.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200420_211709.webp"></p>
 <p>最后跳转到这个界面的时候就安装成功了，点击右下角 <strong>Reboot</strong> 重启，正常启动：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211915.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200420_211915.webp"></p>
 <p>最后就是进入 Web UI 界面进行管理了，要注意的是 地址是：<strong><a href="https://server-ip:8006/">https://server-ip:8006</a></strong>，是 <strong>https</strong> 而不是 http：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200422_223141.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200422_223141.webp"></p>
 ]]></content>
       <categories>
         <category>Microserver Gen 10 Plus</category>
@@ -430,21 +430,21 @@
 
 <p>则证明显卡直通成功了</p>
 <h2 id="3-配置虚拟机"><a href="#3-配置虚拟机" class="headerlink" title="3.配置虚拟机"></a>3.配置虚拟机</h2><p>这里以 <strong>Ubuntu Server 18.04 LTS</strong> 为例：</p>
-<p><img data-src="/images/articles/proxmox-ve-ubuntu-nvidia-passthrough/20200731_111152.webp" alt="创建"></p>
-<p><img data-src="/images/articles/proxmox-ve-ubuntu-nvidia-passthrough/20200731_111236.webp" alt="设置镜像"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200731_111152.webp" alt="创建"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200731_111236.webp" alt="设置镜像"></p>
 <p>这里要注意的是 BIOS 要设置为 <strong>OVMF(UEFI)</strong> 至于是否要添加 EFI 磁盘，有什么影响我还不确定，但是我是添加了，还有就是 机器要设置为 <strong>q35</strong></p>
-<p><img data-src="/images/articles/proxmox-ve-ubuntu-nvidia-passthrough/20200731_111405.webp" alt="系统设置"></p>
-<p><img data-src="/images/articles/proxmox-ve-ubuntu-nvidia-passthrough/20200731_111724.webp" alt="硬盘设置"></p>
-<p><img data-src="/images/articles/proxmox-ve-ubuntu-nvidia-passthrough/20200731_111759.webp" alt="设置CPU"></p>
-<p><img data-src="/images/articles/proxmox-ve-ubuntu-nvidia-passthrough/20200731_111834.webp" alt="设置内存"></p>
-<p><img data-src="/images/articles/proxmox-ve-ubuntu-nvidia-passthrough/20200731_111940.webp" alt="设置网络"></p>
-<p><img data-src="/images/articles/proxmox-ve-ubuntu-nvidia-passthrough/20200731_112004.webp" alt="总设置"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200731_111405.webp" alt="系统设置"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200731_111724.webp" alt="硬盘设置"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200731_111759.webp" alt="设置CPU"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200731_111834.webp" alt="设置内存"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200731_111940.webp" alt="设置网络"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200731_112004.webp" alt="总设置"></p>
 <p>在创建完之后，先不要急着启动，找到侧边栏的 <strong>硬件</strong> 选项：</p>
-<p><img data-src="/images/articles/proxmox-ve-ubuntu-nvidia-passthrough/20200731_141610.webp" alt="添加 PCI-E 硬件"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200731_141610.webp" alt="添加 PCI-E 硬件"></p>
 <p>再选中 <strong>显示</strong> 这一行，点击编辑，修改为 <strong>SPICE</strong> ：</p>
-<p><img data-src="/images/articles/proxmox-ve-ubuntu-nvidia-passthrough/20200731_142041.webp" alt="编辑显存为SPICE"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200731_142041.webp" alt="编辑显存为SPICE"></p>
 <p>最后修改完的设置应该为：</p>
-<p><img data-src="/images/articles/proxmox-ve-ubuntu-nvidia-passthrough/20200731_142903.webp" alt="总配置"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200731_142903.webp" alt="总配置"></p>
 <p>然后再去启动虚拟机。</p>
 <h2 id="4-Ubuntu-安装显卡驱动"><a href="#4-Ubuntu-安装显卡驱动" class="headerlink" title="4.Ubuntu 安装显卡驱动"></a>4.Ubuntu 安装显卡驱动</h2><p>通过 VNC 安装完系统之后，执行以下命令来安装系统更新：</p>
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt update &amp;&amp; apt upgrade -y</span><br></pre></td></tr></table></figure>
@@ -467,7 +467,7 @@
 <figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nvidia-smi</span><br></pre></td></tr></table></figure>
 
 <p>输出：</p>
-<p><img data-src="/images/articles/proxmox-ve-ubuntu-nvidia-passthrough/20200731_143853.webp"></p>
+<p><img data-src="https://img.339.im/images/2020/11/28/20200731_143853.webp"></p>
 <p>则成功直通</p>
 ]]></content>
       <categories>
