@@ -38,8 +38,8 @@ custom_file_path:
 # Schemes
 #scheme: Muse
 #scheme: Mist
-#scheme: Pisces
-scheme: Gemini
+scheme: Pisces
+#scheme: Gemini
 
 # Dark Mode
 darkmode: false
@@ -163,7 +163,7 @@ links_settings:
   layout: block
 
 links:
-  #Title: https://example.com
+  Bing Wallpapers: https://bing.339.im
 
 # Table of Contents in the Sidebar
 # Front-matter variable (unsupport wrap expand_all).
@@ -233,7 +233,7 @@ footer:
 # ---------------------------------------------------------------
 
 # Automatically excerpt description in homepage as preamble text.
-excerpt_description: false
+excerpt_description: true
 
 # Read more button
 # If true, the read more button will be displayed in excerpt section.
@@ -504,6 +504,8 @@ math:
 
   mathjax:
     enable: false
+    # Available values: none | ams | all
+    tags: none
 
   katex:
     enable: false
@@ -595,33 +597,15 @@ disqusjs:
   # Leave api empty if you are able to connect to Disqus API. Otherwise you need a reverse proxy for it.
   # For example:
   # api: https://disqus.skk.moe/disqus/
-  api:
-  apikey: # Register new application from https://disqus.com/api/applications/
-  shortname: # See: https://disqus.com/admin/settings/general/
+  api: 
+  apikey: 
+  shortname: 
 
 # Changyan
 changyan:
   enable: false
   appid:
   appkey:
-
-# Valine
-# For more information: https://valine.js.org, https://github.com/xCss/Valine
-valine:
-  enable: true
-  appId: XwFd2xqO94X9mgMuCW2zoLqS-9Nh9j0Va
-  appKey: Vxr6vOP6K5y3d6IXiIt4P4ly
-  serverURLs: https://xwfd2xqo.lc-cn-e1-shared.com # When the custom domain name is enabled, fill it in here
-  placeholder: Just go go # Comment box placeholder
-  avatar: mm # Gravatar style
-  meta: [nick, mail] # Custom comment header
-  pageSize: 10 # Pagination size
-  lang: zh-cn # Language, available values: en, zh-cn
-  visitor: true # Article reading statistic
-  comment_count: true # If false, comment count will only be displayed in post page, not in home page
-  recordIP: true # Whether to record the commenter IP
-  enableQQ: true # Whether to enable the Nickname box to automatically get QQ Nickname and QQ Avatar
-  requiredFields: [] # Set required fields: [nick] | [nick, mail]
 
 # LiveRe comments system
 # You can get your uid from https://livere.com/insight/myCode (General web site)
@@ -641,6 +625,20 @@ gitalk:
   # If you want everyone visiting your site to see a uniform language, you can set a force language value
   # Available values: en | es-ES | fr | ru | zh-CN | zh-TW
   language:
+
+# Utterances
+# For more information: https://utteranc.es
+utterances:
+  enable: false
+  repo: # Github repository name
+  # Available values: pathname | url | title | og:title
+  issue_term: pathname
+  # Available values: github-light | github-dark | preferred-color-scheme | github-dark-orange | icy-dark | dark-blue | photon-dark | boxy-light
+  theme: github-light
+
+# Isso
+# For more information: https://posativ.org/isso/
+isso: # <data_isso>
 
 
 # ---------------------------------------------------------------
@@ -667,7 +665,7 @@ add_this_id:
 
 # Google Analytics
 google_analytics:
-  tracking_id: G-F7KX844D92
+  tracking_id: G-JR30WBCF3S
   # By default, NexT will load an external gtag.js script on your site.
   # If you only need the pageview feature, set the following option to true to get a better performance.
   only_pageview: false
@@ -678,8 +676,9 @@ baidu_analytics: # <app_id>
 # Growingio Analytics
 growingio_analytics: # <project_id>
 
-# CNZZ count
-cnzz_siteid:
+# Cloudflare Web Analytics
+# See: https://www.cloudflare.com/web-analytics/
+cloudflare_analytics:
 
 # Show number of visitors of each article.
 # You can visit https://leancloud.cn to get AppID and AppKey.
@@ -742,9 +741,6 @@ local_search:
   unescape: false
   # Preload the search data when the page loads.
   preload: false
-
-# Swiftype Search API Key
-swiftype_key:
 
 
 # ---------------------------------------------------------------
@@ -908,9 +904,6 @@ vendors:
   disqusjs_js:
   disqusjs_css:
 
-  # Valine
-  valine:
-
   # Gitalk
   gitalk_js:
   gitalk_css:
@@ -922,6 +915,9 @@ vendors:
   # Algolia Search
   algolia_search:
   instant_search:
+
+  # PDF
+  pdfobject:
 
   # Mermaid
   mermaid:
