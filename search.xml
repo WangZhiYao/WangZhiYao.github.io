@@ -37,19 +37,6 @@
       </tags>
   </entry>
   <entry>
-    <title>RecyclerView ItemDecoration 均分 Item 间隔</title>
-    <url>/articles/android-recyclerview-spaceing-item-decoration/</url>
-    <content><![CDATA[<p>在 RecyclerView 中使用 ItemDecoration 重写 <strong>getItemOffsets</strong> 设置每个 Item 的间隔，支持各种 LayoutManager:</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpacingItemDecoration</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ItemDecoration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> spanCount;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> spacing;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> includeEdge;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SpacingItemDecoration</span><span class="params">(<span class="keyword">int</span> spacing, <span class="keyword">int</span> spanCount, <span class="keyword">boolean</span> includeEdge)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.spacing = spacing;</span><br><span class="line">        <span class="keyword">this</span>.spanCount = spanCount;</span><br><span class="line">        <span class="keyword">this</span>.includeEdge = includeEdge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getItemOffsets</span><span class="params">(<span class="meta">@NotNull</span> Rect outRect, <span class="meta">@NotNull</span> View view, RecyclerView parent,</span></span></span><br><span class="line"><span class="function"><span class="params">                               <span class="meta">@NotNull</span> RecyclerView.State state)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> position = parent.getChildAdapterPosition(view);</span><br><span class="line">        <span class="keyword">int</span> column = position % spanCount;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (includeEdge) &#123;</span><br><span class="line">            outRect.left = spacing - column * spacing / spanCount;</span><br><span class="line">            outRect.right = (column + <span class="number">1</span>) * spacing / spanCount;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (position &lt; spanCount) &#123;</span><br><span class="line">                outRect.top = spacing;</span><br><span class="line">            &#125;</span><br><span class="line">            outRect.bottom = spacing;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            outRect.left = column * spacing / spanCount;</span><br><span class="line">            outRect.right = spacing - (column + <span class="number">1</span>) * spacing / spanCount;</span><br><span class="line">            <span class="keyword">if</span> (position &gt;= spanCount) &#123;</span><br><span class="line">                outRect.top = spacing;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-]]></content>
-      <categories>
-        <category>Android</category>
-      </categories>
-      <tags>
-        <tag>RecyclerView</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Android RecyclerView 将指定 Item 滑动到顶部</title>
     <url>/articles/android-recyclerview-smoothscroller/</url>
     <content><![CDATA[<p>只能在 <code>LayoutManager</code> 为 <strong>LinearLayoutManager 及其子类</strong>的情况下使用！！</p>
@@ -71,6 +58,19 @@
 <p>使用方式：</p>
 <figure class="highlight java"><table><tr><td class="code"><pre><span class="line">ScrollToTopSmoothScroller smoothScroller = <span class="keyword">new</span> ScrollToTopSmoothScroller(context);</span><br><span class="line">smoothScroller.setTargetPosition(position);</span><br><span class="line">layoutManager.startSmoothScroll(smoothScroller);</span><br></pre></td></tr></table></figure>
 <p>不可复用，每次滑动需要重新创建</p>
+]]></content>
+      <categories>
+        <category>Android</category>
+      </categories>
+      <tags>
+        <tag>RecyclerView</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>RecyclerView ItemDecoration 均分 Item 间隔</title>
+    <url>/articles/android-recyclerview-spaceing-item-decoration/</url>
+    <content><![CDATA[<p>在 RecyclerView 中使用 ItemDecoration 重写 <strong>getItemOffsets</strong> 设置每个 Item 的间隔，支持各种 LayoutManager:</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpacingItemDecoration</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ItemDecoration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> spanCount;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> spacing;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> includeEdge;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SpacingItemDecoration</span><span class="params">(<span class="keyword">int</span> spacing, <span class="keyword">int</span> spanCount, <span class="keyword">boolean</span> includeEdge)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.spacing = spacing;</span><br><span class="line">        <span class="keyword">this</span>.spanCount = spanCount;</span><br><span class="line">        <span class="keyword">this</span>.includeEdge = includeEdge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getItemOffsets</span><span class="params">(<span class="meta">@NotNull</span> Rect outRect, <span class="meta">@NotNull</span> View view, RecyclerView parent,</span></span></span><br><span class="line"><span class="function"><span class="params">                               <span class="meta">@NotNull</span> RecyclerView.State state)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> position = parent.getChildAdapterPosition(view);</span><br><span class="line">        <span class="keyword">int</span> column = position % spanCount;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (includeEdge) &#123;</span><br><span class="line">            outRect.left = spacing - column * spacing / spanCount;</span><br><span class="line">            outRect.right = (column + <span class="number">1</span>) * spacing / spanCount;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (position &lt; spanCount) &#123;</span><br><span class="line">                outRect.top = spacing;</span><br><span class="line">            &#125;</span><br><span class="line">            outRect.bottom = spacing;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            outRect.left = column * spacing / spanCount;</span><br><span class="line">            outRect.right = spacing - (column + <span class="number">1</span>) * spacing / spanCount;</span><br><span class="line">            <span class="keyword">if</span> (position &gt;= spanCount) &#123;</span><br><span class="line">                outRect.top = spacing;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 ]]></content>
       <categories>
         <category>Android</category>
@@ -129,51 +129,6 @@
       </categories>
       <tags>
         <tag>HashMap</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Microserver Gen10 Plus 安装 Proxmox VE</title>
-    <url>/articles/microserver-gen10-plus-proxmox-ve/</url>
-    <content><![CDATA[<h2 id="1-下载镜像"><a href="#1-下载镜像" class="headerlink" title="1.下载镜像"></a>1.下载镜像</h2><p>首先是去 Proxmox VE 的 <a href="https://www.proxmox.com/en/downloads/category/iso-images-pve">官网</a> 下载镜像</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/official-website.webp" alt="Proxmox VE 官网"></p>
-<a id="more"></a>
-
-<h2 id="2-制作启动盘"><a href="#2-制作启动盘" class="headerlink" title="2.制作启动盘"></a>2.制作启动盘</h2><p>使用 Rufus 或者 UltraISO 或者 balenaEtcher 都行，将镜像刷进 U盘 内，制作成启动盘。</p>
-<h2 id="3-安装"><a href="#3-安装" class="headerlink" title="3.安装"></a>3.安装</h2><p>建议将 U盘 插在 Gen10 Plus 前面板的 USB 口上，这样速度会快一点（由于没有买 iLO Enablement Kit，所以我把机器搬到桌子上连到显示器上，全程只能拍屏幕），接着启动电源，等到进入这个界面的时候按 F11，到启动菜单，选择你的 U盘 启动：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211154.webp"></p>
-<p>然后就进入 Proxmox VE 的安装界面，选择第一个 <strong>Install Proxmox VE</strong> ：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_214324.webp"></p>
-<p>点击右下角的 <strong>I agree</strong> :</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211307.webp"></p>
-<p>然后选择要安装到哪个硬盘，在这里可以点击旁边的 <strong>Options</strong> 按钮设置成 zfs 做软 raid ：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211320.webp"></p>
-<p>打开 <strong>Options</strong>，里面默认是 **ext4 **:</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211340.webp"></p>
-<p>可以点击下拉菜单选择其他：</p>
-<blockquote>
-<p>ext3, ext4, xfs, raid 0, raid 1, raid 10, raidz 1, raidz 2, raidz 3</p>
-</blockquote>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211359.webp"></p>
-<p>再接下来就是填写 国家与时区还有键盘布局，国家填好之后时区会自动跟着变，键盘布局一般不需要改：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211433.webp"></p>
-<p>再接下来就是设置 root 的密码以及邮箱：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211450.webp"></p>
-<p>再是到这里设置 网络，<strong>网卡要选择 开头为 eno 的</strong>，根据你网线插在哪个口选择对应的，千万不要选错，不然进不了管理后台(坑了我很久，我还以为是我设置错了)，再接着设置 主机名，ip，掩码，网关与dns等：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_214444.webp"></p>
-<p>最后是确认界面，确认无误之后，就点击 <strong>Install</strong> 进行安装：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_214541.webp"></p>
-<p>安装中：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211709.webp"></p>
-<p>最后跳转到这个界面的时候就安装成功了，点击右下角 <strong>Reboot</strong> 重启，正常启动：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211915.webp"></p>
-<p>最后就是进入 Web UI 界面进行管理了，要注意的是 地址是：<strong><a href="https://server-ip:8006/">https://server-ip:8006</a></strong>，是 <strong>https</strong> 而不是 http：</p>
-<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200422_223141.webp"></p>
-]]></content>
-      <categories>
-        <category>Microserver Gen 10 Plus</category>
-      </categories>
-      <tags>
-        <tag>Proxmox VE</tag>
       </tags>
   </entry>
   <entry>
@@ -277,6 +232,51 @@
       </tags>
   </entry>
   <entry>
+    <title>Microserver Gen10 Plus 安装 Proxmox VE</title>
+    <url>/articles/microserver-gen10-plus-proxmox-ve/</url>
+    <content><![CDATA[<h2 id="1-下载镜像"><a href="#1-下载镜像" class="headerlink" title="1.下载镜像"></a>1.下载镜像</h2><p>首先是去 Proxmox VE 的 <a href="https://www.proxmox.com/en/downloads/category/iso-images-pve">官网</a> 下载镜像</p>
+<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/official-website.webp" alt="Proxmox VE 官网"></p>
+<a id="more"></a>
+
+<h2 id="2-制作启动盘"><a href="#2-制作启动盘" class="headerlink" title="2.制作启动盘"></a>2.制作启动盘</h2><p>使用 Rufus 或者 UltraISO 或者 balenaEtcher 都行，将镜像刷进 U盘 内，制作成启动盘。</p>
+<h2 id="3-安装"><a href="#3-安装" class="headerlink" title="3.安装"></a>3.安装</h2><p>建议将 U盘 插在 Gen10 Plus 前面板的 USB 口上，这样速度会快一点（由于没有买 iLO Enablement Kit，所以我把机器搬到桌子上连到显示器上，全程只能拍屏幕），接着启动电源，等到进入这个界面的时候按 F11，到启动菜单，选择你的 U盘 启动：</p>
+<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211154.webp"></p>
+<p>然后就进入 Proxmox VE 的安装界面，选择第一个 <strong>Install Proxmox VE</strong> ：</p>
+<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_214324.webp"></p>
+<p>点击右下角的 <strong>I agree</strong> :</p>
+<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211307.webp"></p>
+<p>然后选择要安装到哪个硬盘，在这里可以点击旁边的 <strong>Options</strong> 按钮设置成 zfs 做软 raid ：</p>
+<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211320.webp"></p>
+<p>打开 <strong>Options</strong>，里面默认是 **ext4 **:</p>
+<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211340.webp"></p>
+<p>可以点击下拉菜单选择其他：</p>
+<blockquote>
+<p>ext3, ext4, xfs, raid 0, raid 1, raid 10, raidz 1, raidz 2, raidz 3</p>
+</blockquote>
+<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211359.webp"></p>
+<p>再接下来就是填写 国家与时区还有键盘布局，国家填好之后时区会自动跟着变，键盘布局一般不需要改：</p>
+<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211433.webp"></p>
+<p>再接下来就是设置 root 的密码以及邮箱：</p>
+<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211450.webp"></p>
+<p>再是到这里设置 网络，<strong>网卡要选择 开头为 eno 的</strong>，根据你网线插在哪个口选择对应的，千万不要选错，不然进不了管理后台(坑了我很久，我还以为是我设置错了)，再接着设置 主机名，ip，掩码，网关与dns等：</p>
+<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_214444.webp"></p>
+<p>最后是确认界面，确认无误之后，就点击 <strong>Install</strong> 进行安装：</p>
+<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_214541.webp"></p>
+<p>安装中：</p>
+<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211709.webp"></p>
+<p>最后跳转到这个界面的时候就安装成功了，点击右下角 <strong>Reboot</strong> 重启，正常启动：</p>
+<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200420_211915.webp"></p>
+<p>最后就是进入 Web UI 界面进行管理了，要注意的是 地址是：<strong><a href="https://server-ip:8006/">https://server-ip:8006</a></strong>，是 <strong>https</strong> 而不是 http：</p>
+<p><img data-src="/images/articles/microserver-gen10-plus-proxmox-ve/20200422_223141.webp"></p>
+]]></content>
+      <categories>
+        <category>Microserver Gen 10 Plus</category>
+      </categories>
+      <tags>
+        <tag>Proxmox VE</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>MySQL 连接控制插件</title>
     <url>/articles/mysql-connection-control-plugin/</url>
     <content><![CDATA[<p>最近查看服务器日志发现一堆IP尝试爆破我的 MySQL，我的数据库端口并没有修改，问题并不大，但是让这些IP无代价的爆破生成一堆日志让我很烦，所以查了一下各种解决方案，有提到 Fail2Ban，但是我服务器已经装了 DenyHosts，所以并不想再引入一个功能上有重复的包，所以使用了MySQL的 <code>Connection-Control</code> 插件，下面是它官网的描述：</p>
@@ -352,38 +352,6 @@
       </categories>
       <tags>
         <tag>MySQL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Java 中赋值表达式的返回值</title>
-    <url>/articles/value-of-java-assignment-expression/</url>
-    <content><![CDATA[<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>写代码的时候脑子里想着</p>
-<blockquote>
-<p>如果 flag = true 则 do something …</p>
-</blockquote>
-<p>于是手上跟着敲出</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag = <span class="keyword">true</span>) &#123;</span><br><span class="line">    <span class="comment">// do something ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>编译器没有报错，当时思想走神也丝毫没有发觉这是一段弱智代码，调试的时候发现 if 里的语句每次都执行了，觉得不太对劲，然而仍然没有发现这段弱智代码有问题，本着格物致知的精神格了几分钟才发现这段代码应该是：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag) &#123;</span><br><span class="line">    <span class="comment">// do something ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>瞬间觉得自己宛如智障</p>
-<a id="more"></a>
-
-<h1 id="经过"><a href="#经过" class="headerlink" title="经过"></a>经过</h1><p>google 了一下 java 赋值表达式，才发现赋值表达式也是有返回值的，突然就想起：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>((len = in.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>这点在 <a href="https://docs.oracle.com/javase/specs/jls/se13/html/jls-15.html#jls-15.26">Oracle Java 文档</a> 中有描述</p>
-<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>赋值表达式的返回值是表达式中右边的值，<code>evaluation order</code>是从左到右也就是说：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> j = (i = <span class="number">3</span>) * i;</span><br></pre></td></tr></table></figure>
-<p>i 会先被赋值为 3，再乘以本身，所以 j = 9</p>
-<p>于是我当时写下的：</p>
-<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag = <span class="keyword">true</span>) &#123;</span><br><span class="line">    <span class="comment">// do something ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>if 表达式中的 flag 每次都会被我设为 true 且返回值也是 boolean 类型所以编译器不会报错，然后进入 if 中执行</p>
-<p>这就是这次弱智事情的结果</p>
-]]></content>
-      <categories>
-        <category>Java</category>
-      </categories>
-      <tags>
-        <tag>Framework</tag>
       </tags>
   </entry>
   <entry>
@@ -471,6 +439,38 @@
       </categories>
       <tags>
         <tag>Proxmox VE</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Java 中赋值表达式的返回值</title>
+    <url>/articles/value-of-java-assignment-expression/</url>
+    <content><![CDATA[<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>写代码的时候脑子里想着</p>
+<blockquote>
+<p>如果 flag = true 则 do something …</p>
+</blockquote>
+<p>于是手上跟着敲出</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag = <span class="keyword">true</span>) &#123;</span><br><span class="line">    <span class="comment">// do something ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>编译器没有报错，当时思想走神也丝毫没有发觉这是一段弱智代码，调试的时候发现 if 里的语句每次都执行了，觉得不太对劲，然而仍然没有发现这段弱智代码有问题，本着格物致知的精神格了几分钟才发现这段代码应该是：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag) &#123;</span><br><span class="line">    <span class="comment">// do something ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>瞬间觉得自己宛如智障</p>
+<a id="more"></a>
+
+<h1 id="经过"><a href="#经过" class="headerlink" title="经过"></a>经过</h1><p>google 了一下 java 赋值表达式，才发现赋值表达式也是有返回值的，突然就想起：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">while</span>((len = in.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">    ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>这点在 <a href="https://docs.oracle.com/javase/specs/jls/se13/html/jls-15.html#jls-15.26">Oracle Java 文档</a> 中有描述</p>
+<h1 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h1><p>赋值表达式的返回值是表达式中右边的值，<code>evaluation order</code>是从左到右也就是说：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">int</span> i = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">int</span> j = (i = <span class="number">3</span>) * i;</span><br></pre></td></tr></table></figure>
+<p>i 会先被赋值为 3，再乘以本身，所以 j = 9</p>
+<p>于是我当时写下的：</p>
+<figure class="highlight java"><table><tr><td class="code"><pre><span class="line"><span class="keyword">if</span> (flag = <span class="keyword">true</span>) &#123;</span><br><span class="line">    <span class="comment">// do something ...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>if 表达式中的 flag 每次都会被我设为 true 且返回值也是 boolean 类型所以编译器不会报错，然后进入 if 中执行</p>
+<p>这就是这次弱智事情的结果</p>
+]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Framework</tag>
       </tags>
   </entry>
   <entry>
