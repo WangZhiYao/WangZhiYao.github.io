@@ -209,7 +209,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -222,7 +222,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -270,6 +270,259 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wangzhiyao.github.io/articles/android-textview-underline-bold-strikethrough/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.webp">
+      <meta itemprop="name" content="339">
+      <meta itemprop="description" content="Less is more">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="339's">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/articles/android-textview-underline-bold-strikethrough/" class="post-title-link" itemprop="url">TextView 添加下划线，删除线，加粗</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-02 21:22:00" itemprop="dateCreated datePublished" datetime="2020-03-02T21:22:00+08:00">2020-03-02</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>通过 TextView 的 <code>setPaintFlags</code> 方式来添加下划线，删除线，加粗，在原有的 PaintFlags 上添加新的 Flag 而不清除原有的 Flags</p>
+<ul>
+<li><p>Paint.ANTI_ALIAS_FLAG 抗锯齿</p>
+</li>
+<li><p>Paint.FILTER_BITMAP_FLAG 用于对 Bitmap 进行转换（例如缩放）时对 Bitmap 进行双线性过滤</p>
+</li>
+<li><p>Paint.DITHER_FLAG  会影响对比设备精度更高的颜色进行下采样的方式</p>
+</li>
+<li><p>Paint.UNDERLINE_TEXT_FLAG 下划线</p>
+</li>
+<li><p>Paint.STRIKE_THRU_TEXT_FLAG 删除线</p>
+</li>
+<li><p>Paint.FAKE_BOLD_TEXT_FLAG 伪粗体，并不是通过选用更高 weight 的字体让文字变粗，而是通过程序在运行时把文字给「描粗」</p>
+</li>
+<li><p>Paint.LINEAR_TEXT_FLAG 会调整文本绘制操作以平滑处理缩放比例，应当与 Paint.SUBPIXEL_TEXT_FLAG 一起使用</p>
+</li>
+<li><p>Paint.SUBPIXEL_TEXT_FLAG 亚像素级的抗锯齿</p>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TextViewUtils</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addUnderLine</span><span class="params">(TextView textView)</span> </span>&#123;</span><br><span class="line">        addPaintFlag(textView, Paint.UNDERLINE_TEXT_FLAG);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">removeUnderLine</span><span class="params">(TextView textView)</span> </span>&#123;</span><br><span class="line">        removePaintFlag(textView, Paint.UNDERLINE_TEXT_FLAG);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addStrikeThrough</span><span class="params">(TextView textView)</span> </span>&#123;</span><br><span class="line">        addPaintFlag(textView, Paint.STRIKE_THRU_TEXT_FLAG);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">removeStrikeThrough</span><span class="params">(TextView textView)</span> </span>&#123;</span><br><span class="line">        removePaintFlag(textView, Paint.STRIKE_THRU_TEXT_FLAG);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setFakeBold</span><span class="params">(TextView textView)</span> </span>&#123;</span><br><span class="line">        addPaintFlag(textView, Paint.FAKE_BOLD_TEXT_FLAG);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">removeFakeBold</span><span class="params">(TextView textView)</span> </span>&#123;</span><br><span class="line">        removePaintFlag(textView, Paint.FAKE_BOLD_TEXT_FLAG);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addPaintFlag</span><span class="params">(TextView textView, <span class="keyword">int</span> paintFlag)</span> </span>&#123;</span><br><span class="line">        textView.setPaintFlags(textView.getPaintFlags() | paintFlag);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">removePaintFlag</span><span class="params">(TextView textView, <span class="keyword">int</span> paintFlag)</span> </span>&#123;</span><br><span class="line">        textView.setPaintFlags(textView.getPaintFlags() &amp; (~paintFlag));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wangzhiyao.github.io/articles/android-recyclerview-smoothscroller/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.webp">
+      <meta itemprop="name" content="339">
+      <meta itemprop="description" content="Less is more">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="339's">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/articles/android-recyclerview-smoothscroller/" class="post-title-link" itemprop="url">Android RecyclerView 将指定 Item 滑动到顶部</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2020-03-01 20:41:05" itemprop="dateCreated datePublished" datetime="2020-03-01T20:41:05+08:00">2020-03-01</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>只能在 <code>LayoutManager</code> 为 <strong>LinearLayoutManager 及其子类</strong>的情况下使用！！</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/articles/android-recyclerview-smoothscroller/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wangzhiyao.github.io/articles/mysql-connection-control-plugin/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.webp">
+      <meta itemprop="name" content="339">
+      <meta itemprop="description" content="Less is more">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="339's">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/articles/mysql-connection-control-plugin/" class="post-title-link" itemprop="url">MySQL 连接控制插件</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2019-04-27 15:53:29" itemprop="dateCreated datePublished" datetime="2019-04-27T15:53:29+08:00">2019-04-27</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>最近查看服务器日志发现一堆IP尝试爆破我的 MySQL，我的数据库端口并没有修改，问题并不大，但是让这些IP无代价的爆破生成一堆日志让我很烦，所以查了一下各种解决方案，有提到 Fail2Ban，但是我服务器已经装了 DenyHosts，所以并不想再引入一个功能上有重复的包，所以使用了MySQL的 <code>Connection-Control</code> 插件，下面是它官网的描述：</p>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/articles/mysql-connection-control-plugin/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 

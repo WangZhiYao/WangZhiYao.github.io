@@ -209,7 +209,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">12</span>
+          <span class="site-state-item-count">15</span>
           <span class="site-state-item-name">日志</span>
         </a>
       </div>
@@ -222,7 +222,7 @@
       <div class="site-state-item site-state-tags">
             <a href="/tags/">
           
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">12</span>
         <span class="site-state-item-name">标签</span></a>
       </div>
   </nav>
@@ -270,6 +270,258 @@
 
 
     <div class="main-inner index posts-expand">
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wangzhiyao.github.io/articles/ubuntu-debian-fail2ban-nginx/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.webp">
+      <meta itemprop="name" content="339">
+      <meta itemprop="description" content="Less is more">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="339's">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/articles/ubuntu-debian-fail2ban-nginx/" class="post-title-link" itemprop="url">Ubuntu 或 Debian 在 Nginx 下使用 fail2ban 阻止恶意扫描</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-02-23 18:19:03" itemprop="dateCreated datePublished" datetime="2021-02-23T18:19:03+08:00">2021-02-23</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>在 <code>/etc/fail2ban/filter.d</code> 下新建 <code>nginx-cc.conf</code></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch /etc/fail2ban/filter.d/nginx-cc.conf</span><br></pre></td></tr></table></figure>
+
+<p>输入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[Definition]</span><br><span class="line">failregex = ^&lt;HOST&gt; -.*<span class="string">&quot;(GET|POST|HEAD).*&quot;</span> 404 .*$</span><br><span class="line">ignoreregex =.*(robots.txt|favicon.ico|jpg|png)</span><br></pre></td></tr></table></figure>
+
+<p>然后在 <code>/etc/fail2ban/jail.d/</code> 的 <code>defaults-debian.conf</code> 中加入如下几行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[nginx-botsearch]</span><br><span class="line">enabled = <span class="literal">true</span></span><br><span class="line">[nginx-cc]</span><br><span class="line">enabled = <span class="literal">true</span></span><br><span class="line">filter  = nginx-cc</span><br><span class="line">logpath = %(nginx_access_log)s</span><br><span class="line">port    = http,https</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wangzhiyao.github.io/articles/ubuntu-debian-bbr/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.webp">
+      <meta itemprop="name" content="339">
+      <meta itemprop="description" content="Less is more">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="339's">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/articles/ubuntu-debian-bbr/" class="post-title-link" itemprop="url">Ubuntu 或 Debian 开启 BBR</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-02-05 11:57:02" itemprop="dateCreated datePublished" datetime="2021-02-05T11:57:02+08:00">2021-02-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p>需要 Linux 内核 4.9 及以上版本</p>
+<h3 id="1-修改系统变量"><a href="#1-修改系统变量" class="headerlink" title="1.修改系统变量"></a>1.修改系统变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.core.default_qdisc=fq&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.ipv4.tcp_congestion_control=bbr&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-保存生效"><a href="#2-保存生效" class="headerlink" title="2.保存生效"></a>2.保存生效</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-查看是否已经开启"><a href="#3-查看是否已经开启" class="headerlink" title="3.查看是否已经开启"></a>3.查看是否已经开启</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br></pre></td></tr></table></figure>
+
+<p>如输出如下，含有 <code>bbr</code> 即可，无需在意顺序，则证明已开启</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.tcp_available_congestion_control = reno cubic bbr</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-查看BBR是否启动"><a href="#4-查看BBR是否启动" class="headerlink" title="4.查看BBR是否启动"></a>4.查看BBR是否启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
+
+<p>显示以下即启动成功：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcp_bbr                20480  20</span><br></pre></td></tr></table></figure>
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
+
+    
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
+    <link itemprop="mainEntityOfPage" href="https://wangzhiyao.github.io/articles/ubuntu-nginx-mysql-wordpress/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.webp">
+      <meta itemprop="name" content="339">
+      <meta itemprop="description" content="Less is more">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="339's">
+    </span>
+      <header class="post-header">
+        <h2 class="post-title" itemprop="name headline">
+          <a href="/articles/ubuntu-nginx-mysql-wordpress/" class="post-title-link" itemprop="url">Ubuntu 下使用 Nginx + MySQL 搭建 Wordpress</a>
+        </h2>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-02-05 11:54:17" itemprop="dateCreated datePublished" datetime="2021-02-05T11:54:17+08:00">2021-02-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+          <p><strong>以 Ubuntu 20.04 为例，且假设你已获取到 root 权限或者使用的是 root 账号，Wordpress 与 MySQL 安装在同一台服务器上</strong></p>
+<h3 id="1-Wordpress"><a href="#1-Wordpress" class="headerlink" title="1. Wordpress"></a>1. Wordpress</h3><p><strong>如果你已经使用其他工具下载好了 Wordpress 则可以使用 sftp 工具或者任意工具上传到服务器 /var/www 文件夹下，跳过1.1</strong></p>
+<h4 id="1-1-下载"><a href="#1-1-下载" class="headerlink" title="1.1 下载"></a>1.1 下载</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https://cn.wordpress.org/latest-zh_CN.tar.gz -o /var/www/wordpress.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>该命令是将 <strong>中文版</strong> 的 Wordpress 下载到路径 /var/www 中，名字为 wordpress.tar.gz， 如果提示：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash: curl: <span class="built_in">command</span> not found.</span><br></pre></td></tr></table></figure>
+
+<p>则运行如下命令后再运行第一条命令下载 Wordpress：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install curl</span><br></pre></td></tr></table></figure>
+          <!--noindex-->
+            <div class="post-button">
+              <a class="btn" href="/articles/ubuntu-nginx-mysql-wordpress/#more" rel="contents">
+                阅读全文 &raquo;
+              </a>
+            </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+</div>
+
+
+
 
     
 
@@ -840,259 +1092,6 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpacingItemDecoration</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ItemDecoration</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> spanCount;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> spacing;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> includeEdge;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SpacingItemDecoration</span><span class="params">(<span class="keyword">int</span> spacing, <span class="keyword">int</span> spanCount, <span class="keyword">boolean</span> includeEdge)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.spacing = spacing;</span><br><span class="line">        <span class="keyword">this</span>.spanCount = spanCount;</span><br><span class="line">        <span class="keyword">this</span>.includeEdge = includeEdge;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">getItemOffsets</span><span class="params">(<span class="meta">@NotNull</span> Rect outRect, <span class="meta">@NotNull</span> View view, RecyclerView parent,</span></span></span><br><span class="line"><span class="function"><span class="params">                               <span class="meta">@NotNull</span> RecyclerView.State state)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> position = parent.getChildAdapterPosition(view);</span><br><span class="line">        <span class="keyword">int</span> column = position % spanCount;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> (includeEdge) &#123;</span><br><span class="line">            outRect.left = spacing - column * spacing / spanCount;</span><br><span class="line">            outRect.right = (column + <span class="number">1</span>) * spacing / spanCount;</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> (position &lt; spanCount) &#123;</span><br><span class="line">                outRect.top = spacing;</span><br><span class="line">            &#125;</span><br><span class="line">            outRect.bottom = spacing;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            outRect.left = column * spacing / spanCount;</span><br><span class="line">            outRect.right = spacing - (column + <span class="number">1</span>) * spacing / spanCount;</span><br><span class="line">            <span class="keyword">if</span> (position &gt;= spanCount) &#123;</span><br><span class="line">                outRect.top = spacing;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wangzhiyao.github.io/articles/android-textview-underline-bold-strikethrough/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.webp">
-      <meta itemprop="name" content="339">
-      <meta itemprop="description" content="Less is more">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="339's">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/articles/android-textview-underline-bold-strikethrough/" class="post-title-link" itemprop="url">TextView 添加下划线，删除线，加粗</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-02 21:22:00" itemprop="dateCreated datePublished" datetime="2020-03-02T21:22:00+08:00">2020-03-02</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>通过 TextView 的 <code>setPaintFlags</code> 方式来添加下划线，删除线，加粗，在原有的 PaintFlags 上添加新的 Flag 而不清除原有的 Flags</p>
-<ul>
-<li><p>Paint.ANTI_ALIAS_FLAG 抗锯齿</p>
-</li>
-<li><p>Paint.FILTER_BITMAP_FLAG 用于对 Bitmap 进行转换（例如缩放）时对 Bitmap 进行双线性过滤</p>
-</li>
-<li><p>Paint.DITHER_FLAG  会影响对比设备精度更高的颜色进行下采样的方式</p>
-</li>
-<li><p>Paint.UNDERLINE_TEXT_FLAG 下划线</p>
-</li>
-<li><p>Paint.STRIKE_THRU_TEXT_FLAG 删除线</p>
-</li>
-<li><p>Paint.FAKE_BOLD_TEXT_FLAG 伪粗体，并不是通过选用更高 weight 的字体让文字变粗，而是通过程序在运行时把文字给「描粗」</p>
-</li>
-<li><p>Paint.LINEAR_TEXT_FLAG 会调整文本绘制操作以平滑处理缩放比例，应当与 Paint.SUBPIXEL_TEXT_FLAG 一起使用</p>
-</li>
-<li><p>Paint.SUBPIXEL_TEXT_FLAG 亚像素级的抗锯齿</p>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TextViewUtils</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addUnderLine</span><span class="params">(TextView textView)</span> </span>&#123;</span><br><span class="line">        addPaintFlag(textView, Paint.UNDERLINE_TEXT_FLAG);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">removeUnderLine</span><span class="params">(TextView textView)</span> </span>&#123;</span><br><span class="line">        removePaintFlag(textView, Paint.UNDERLINE_TEXT_FLAG);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addStrikeThrough</span><span class="params">(TextView textView)</span> </span>&#123;</span><br><span class="line">        addPaintFlag(textView, Paint.STRIKE_THRU_TEXT_FLAG);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">removeStrikeThrough</span><span class="params">(TextView textView)</span> </span>&#123;</span><br><span class="line">        removePaintFlag(textView, Paint.STRIKE_THRU_TEXT_FLAG);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">setFakeBold</span><span class="params">(TextView textView)</span> </span>&#123;</span><br><span class="line">        addPaintFlag(textView, Paint.FAKE_BOLD_TEXT_FLAG);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">removeFakeBold</span><span class="params">(TextView textView)</span> </span>&#123;</span><br><span class="line">        removePaintFlag(textView, Paint.FAKE_BOLD_TEXT_FLAG);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">addPaintFlag</span><span class="params">(TextView textView, <span class="keyword">int</span> paintFlag)</span> </span>&#123;</span><br><span class="line">        textView.setPaintFlags(textView.getPaintFlags() | paintFlag);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">removePaintFlag</span><span class="params">(TextView textView, <span class="keyword">int</span> paintFlag)</span> </span>&#123;</span><br><span class="line">        textView.setPaintFlags(textView.getPaintFlags() &amp; (~paintFlag));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wangzhiyao.github.io/articles/android-recyclerview-smoothscroller/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.webp">
-      <meta itemprop="name" content="339">
-      <meta itemprop="description" content="Less is more">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="339's">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/articles/android-recyclerview-smoothscroller/" class="post-title-link" itemprop="url">Android RecyclerView 将指定 Item 滑动到顶部</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2020-03-01 20:41:05" itemprop="dateCreated datePublished" datetime="2020-03-01T20:41:05+08:00">2020-03-01</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Android/" itemprop="url" rel="index"><span itemprop="name">Android</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>只能在 <code>LayoutManager</code> 为 <strong>LinearLayoutManager 及其子类</strong>的情况下使用！！</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/articles/android-recyclerview-smoothscroller/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-
-    <footer class="post-footer">
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-</div>
-
-
-
-
-    
-
-
-<div class="post-block">
-  
-  
-
-  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="">
-    <link itemprop="mainEntityOfPage" href="https://wangzhiyao.github.io/articles/mysql-connection-control-plugin/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.webp">
-      <meta itemprop="name" content="339">
-      <meta itemprop="description" content="Less is more">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="339's">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          <a href="/articles/mysql-connection-control-plugin/" class="post-title-link" itemprop="url">MySQL 连接控制插件</a>
-        </h2>
-
-        <div class="post-meta-container">
-          <div class="post-meta">
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-calendar"></i>
-      </span>
-      <span class="post-meta-item-text">发表于</span>
-
-      <time title="创建时间：2019-04-27 15:53:29" itemprop="dateCreated datePublished" datetime="2019-04-27T15:53:29+08:00">2019-04-27</time>
-    </span>
-    <span class="post-meta-item">
-      <span class="post-meta-item-icon">
-        <i class="far fa-folder"></i>
-      </span>
-      <span class="post-meta-item-text">分类于</span>
-        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
-        </span>
-    </span>
-
-  
-</div>
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-          <p>最近查看服务器日志发现一堆IP尝试爆破我的 MySQL，我的数据库端口并没有修改，问题并不大，但是让这些IP无代价的爆破生成一堆日志让我很烦，所以查了一下各种解决方案，有提到 Fail2Ban，但是我服务器已经装了 DenyHosts，所以并不想再引入一个功能上有重复的包，所以使用了MySQL的 <code>Connection-Control</code> 插件，下面是它官网的描述：</p>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/articles/mysql-connection-control-plugin/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
       
     </div>
 

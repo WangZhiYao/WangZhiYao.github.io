@@ -10,4 +10,4 @@ Disallow: /css/
 Disallow: /lib/
 Disallow: /images/
 
-Sitemap: https://339.codes/sitemap.xml
+Sitemap: https://339.im/sitemap.xml

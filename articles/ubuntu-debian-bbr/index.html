@@ -24,19 +24,21 @@
     var NexT = window.NexT || {};
     var CONFIG = {"hostname":"wangzhiyao.github.io","root":"/","images":"/images","scheme":"Pisces","version":"8.2.2","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":true,"bookmark":{"enable":false,"color":"#222","save":"auto"},"fancybox":true,"mediumzoom":false,"lazyload":true,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"prism":false,"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}};
   </script>
-<meta name="description" content="Less is more">
-<meta property="og:type" content="website">
-<meta property="og:title" content="339&#39;s">
-<meta property="og:url" content="https://wangzhiyao.github.io/archives/page/2/index.html">
+<meta name="description" content="需要 Linux 内核 4.9 及以上版本 1.修改系统变量12echo &quot;net.core.default_qdisc&#x3D;fq&quot; &gt;&gt; &#x2F;etc&#x2F;sysctl.confecho &quot;net.ipv4.tcp_congestion_control&#x3D;bbr&quot; &gt;&gt; &#x2F;etc&#x2F;sysctl.conf  2.保存生效1sysctl -p  3.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ubuntu 或 Debian 开启 BBR">
+<meta property="og:url" content="https://wangzhiyao.github.io/articles/ubuntu-debian-bbr/index.html">
 <meta property="og:site_name" content="339&#39;s">
-<meta property="og:description" content="Less is more">
+<meta property="og:description" content="需要 Linux 内核 4.9 及以上版本 1.修改系统变量12echo &quot;net.core.default_qdisc&#x3D;fq&quot; &gt;&gt; &#x2F;etc&#x2F;sysctl.confecho &quot;net.ipv4.tcp_congestion_control&#x3D;bbr&quot; &gt;&gt; &#x2F;etc&#x2F;sysctl.conf  2.保存生效1sysctl -p  3.">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2021-02-05T03:57:02.000Z">
+<meta property="article:modified_time" content="2021-03-05T14:11:44.827Z">
 <meta property="article:author" content="339">
-<meta property="article:tag" content="Android">
+<meta property="article:tag" content="Ubuntu">
 <meta name="twitter:card" content="summary">
 
 
-<link rel="canonical" href="https://wangzhiyao.github.io/archives/page/2/">
+<link rel="canonical" href="https://wangzhiyao.github.io/articles/ubuntu-debian-bbr/">
 
 
 <script data-pjax class="page-configurations">
@@ -44,11 +46,11 @@
   CONFIG.page = {
     sidebar: "",
     isHome : false,
-    isPost : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
-<title>归档 | 339's</title>
+<title>Ubuntu 或 Debian 开启 BBR | 339's</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S7ZT5RGQ78"></script>
     <script data-pjax>
@@ -181,7 +183,7 @@
 
   <aside class="sidebar">
 
-    <div class="sidebar-inner sidebar-overview-active">
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
       <ul class="sidebar-nav">
         <li class="sidebar-nav-toc">
           文章目录
@@ -194,6 +196,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-%E4%BF%AE%E6%94%B9%E7%B3%BB%E7%BB%9F%E5%8F%98%E9%87%8F"><span class="nav-text">1.修改系统变量</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-%E4%BF%9D%E5%AD%98%E7%94%9F%E6%95%88"><span class="nav-text">2.保存生效</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E5%B7%B2%E7%BB%8F%E5%BC%80%E5%90%AF"><span class="nav-text">3.查看是否已经开启</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#4-%E6%9F%A5%E7%9C%8BBBR%E6%98%AF%E5%90%A6%E5%90%AF%E5%8A%A8"><span class="nav-text">4.查看BBR是否启动</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -269,138 +272,110 @@
 </noscript>
 
 
-    <div class="main-inner archive posts-collapse">
+    <div class="main-inner post posts-expand">
 
 
   
-  
-  
-  <div class="post-block">
-    <div class="post-content">
-      <div class="collection-title">
-        <span class="collection-header">嗯..! 目前共计 15 篇日志。 继续努力。</span>
-      </div>
 
-      
-    <div class="collection-year">
-      <span class="collection-header">2020</span>
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://wangzhiyao.github.io/articles/ubuntu-debian-bbr/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.webp">
+      <meta itemprop="name" content="339">
+      <meta itemprop="description" content="Less is more">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="339's">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Ubuntu 或 Debian 开启 BBR
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2021-02-05 11:57:02" itemprop="dateCreated datePublished" datetime="2021-02-05T11:57:02+08:00">2021-02-05</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/Linux/" itemprop="url" rel="index"><span itemprop="name">Linux</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+        <p>需要 Linux 内核 4.9 及以上版本</p>
+<h3 id="1-修改系统变量"><a href="#1-修改系统变量" class="headerlink" title="1.修改系统变量"></a>1.修改系统变量</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.core.default_qdisc=fq&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.ipv4.tcp_congestion_control=bbr&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-保存生效"><a href="#2-保存生效" class="headerlink" title="2.保存生效"></a>2.保存生效</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-查看是否已经开启"><a href="#3-查看是否已经开启" class="headerlink" title="3.查看是否已经开启"></a>3.查看是否已经开启</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br></pre></td></tr></table></figure>
+
+<p>如输出如下，含有 <code>bbr</code> 即可，无需在意顺序，则证明已开启</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">net.ipv4.tcp_available_congestion_control = reno cubic bbr</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-查看BBR是否启动"><a href="#4-查看BBR是否启动" class="headerlink" title="4.查看BBR是否启动"></a>4.查看BBR是否启动</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
+
+<p>显示以下即启动成功：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tcp_bbr                20480  20</span><br></pre></td></tr></table></figure>
     </div>
 
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-03-02T21:22:00+08:00"
-              content="2020-03-02">
-          03-02
-        </time>
-      </div>
+    
+    
+    
 
-      <div class="post-title">
-          <a class="post-title-link" href="/articles/android-textview-underline-bold-strikethrough/" itemprop="url">
-            <span itemprop="name">TextView 添加下划线，删除线，加粗</span>
-          </a>
-      </div>
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/Ubuntu/" rel="tag"># Ubuntu</a>
+          </div>
 
-      
-    </header>
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/articles/ubuntu-nginx-mysql-wordpress/" rel="prev" title="Ubuntu 下使用 Nginx + MySQL 搭建 Wordpress">
+                  <i class="fa fa-chevron-left"></i> Ubuntu 下使用 Nginx + MySQL 搭建 Wordpress
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/articles/ubuntu-debian-fail2ban-nginx/" rel="next" title="Ubuntu 或 Debian 在 Nginx 下使用 fail2ban 阻止恶意扫描">
+                  Ubuntu 或 Debian 在 Nginx 下使用 fail2ban 阻止恶意扫描 <i class="fa fa-chevron-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
   </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2020-03-01T20:41:05+08:00"
-              content="2020-03-01">
-          03-01
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/articles/android-recyclerview-smoothscroller/" itemprop="url">
-            <span itemprop="name">Android RecyclerView 将指定 Item 滑动到顶部</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2019</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-04-27T15:53:29+08:00"
-              content="2019-04-27">
-          04-27
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/articles/mysql-connection-control-plugin/" itemprop="url">
-            <span itemprop="name">MySQL 连接控制插件</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2019-02-28T10:22:14+08:00"
-              content="2019-02-28">
-          02-28
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/articles/android-parcelable-serializable/" itemprop="url">
-            <span itemprop="name">Android 中的 Parcelable 与 Serializable</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
-    <div class="collection-year">
-      <span class="collection-header">2018</span>
-    </div>
-
-  <article itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-      <div class="post-meta-container">
-        <time itemprop="dateCreated"
-              datetime="2018-09-14T01:10:55+08:00"
-              content="2018-09-14">
-          09-14
-        </time>
-      </div>
-
-      <div class="post-title">
-          <a class="post-title-link" href="/articles/android-launch-mode/" itemprop="url">
-            <span itemprop="name">Android 启动模式</span>
-          </a>
-      </div>
-
-      
-    </header>
-  </article>
+</div>
 
 
-    </div>
-  </div>
-  
-  
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/"><i class="fa fa-angle-left" aria-label="上一页"></i></a><a class="page-number" href="/archives/">1</a><span class="page-number current">2</span>
-  </nav>
+
+
+
 
 
 <script>

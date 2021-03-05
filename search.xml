@@ -478,6 +478,166 @@
       </tags>
   </entry>
   <entry>
+    <title>Ubuntu 或 Debian 开启 BBR</title>
+    <url>/articles/ubuntu-debian-bbr/</url>
+    <content><![CDATA[<p>需要 Linux 内核 4.9 及以上版本</p>
+<h3 id="1-修改系统变量"><a href="#1-修改系统变量" class="headerlink" title="1.修改系统变量"></a>1.修改系统变量</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.core.default_qdisc=fq&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&quot;net.ipv4.tcp_congestion_control=bbr&quot;</span> &gt;&gt; /etc/sysctl.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-保存生效"><a href="#2-保存生效" class="headerlink" title="2.保存生效"></a>2.保存生效</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sysctl -p</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-查看是否已经开启"><a href="#3-查看是否已经开启" class="headerlink" title="3.查看是否已经开启"></a>3.查看是否已经开启</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">sysctl net.ipv4.tcp_available_congestion_control</span><br></pre></td></tr></table></figure>
+
+<p>如输出如下，含有 <code>bbr</code> 即可，无需在意顺序，则证明已开启</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">net.ipv4.tcp_available_congestion_control = reno cubic bbr</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-查看BBR是否启动"><a href="#4-查看BBR是否启动" class="headerlink" title="4.查看BBR是否启动"></a>4.查看BBR是否启动</h3><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">lsmod | grep bbr</span><br></pre></td></tr></table></figure>
+
+<p>显示以下即启动成功：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tcp_bbr                20480  20</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 或 Debian 在 Nginx 下使用 fail2ban 阻止恶意扫描</title>
+    <url>/articles/ubuntu-debian-fail2ban-nginx/</url>
+    <content><![CDATA[<p>在 <code>/etc/fail2ban/filter.d</code> 下新建 <code>nginx-cc.conf</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">touch /etc/fail2ban/filter.d/nginx-cc.conf</span><br></pre></td></tr></table></figure>
+
+<p>输入：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[Definition]</span><br><span class="line">failregex = ^&lt;HOST&gt; -.*<span class="string">&quot;(GET|POST|HEAD).*&quot;</span> 404 .*$</span><br><span class="line">ignoreregex =.*(robots.txt|favicon.ico|jpg|png)</span><br></pre></td></tr></table></figure>
+
+<p>然后在 <code>/etc/fail2ban/jail.d/</code> 的 <code>defaults-debian.conf</code> 中加入如下几行：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">[nginx-botsearch]</span><br><span class="line">enabled = <span class="literal">true</span></span><br><span class="line">[nginx-cc]</span><br><span class="line">enabled = <span class="literal">true</span></span><br><span class="line">filter  = nginx-cc</span><br><span class="line">logpath = %(nginx_access_log)s</span><br><span class="line">port    = http,https</span><br></pre></td></tr></table></figure>]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>Ubuntu</tag>
+        <tag>fail2ban</tag>
+        <tag>Nginx</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Ubuntu 下使用 Nginx + MySQL 搭建 Wordpress</title>
+    <url>/articles/ubuntu-nginx-mysql-wordpress/</url>
+    <content><![CDATA[<p><strong>以 Ubuntu 20.04 为例，且假设你已获取到 root 权限或者使用的是 root 账号，Wordpress 与 MySQL 安装在同一台服务器上</strong></p>
+<h3 id="1-Wordpress"><a href="#1-Wordpress" class="headerlink" title="1. Wordpress"></a>1. Wordpress</h3><p><strong>如果你已经使用其他工具下载好了 Wordpress 则可以使用 sftp 工具或者任意工具上传到服务器 /var/www 文件夹下，跳过1.1</strong></p>
+<h4 id="1-1-下载"><a href="#1-1-下载" class="headerlink" title="1.1 下载"></a>1.1 下载</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">curl https://cn.wordpress.org/latest-zh_CN.tar.gz -o /var/www/wordpress.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>该命令是将 <strong>中文版</strong> 的 Wordpress 下载到路径 /var/www 中，名字为 wordpress.tar.gz， 如果提示：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash: curl: <span class="built_in">command</span> not found.</span><br></pre></td></tr></table></figure>
+
+<p>则运行如下命令后再运行第一条命令下载 Wordpress：</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install curl</span><br></pre></td></tr></table></figure>
+
+<span id="more"></span>
+
+<h4 id="1-2-解压及修改用户组权限"><a href="#1-2-解压及修改用户组权限" class="headerlink" title="1.2 解压及修改用户组权限"></a>1.2 解压及修改用户组权限</h4><p>首先进入 <code>/var/www</code> 文件夹</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line"><span class="built_in">cd</span> /var/www</span><br></pre></td></tr></table></figure>
+
+<p>解压刚刚下载的 wordpress.tar.gz 到当前文件夹中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">tar -zxvf wordpress.tar.gz</span><br></pre></td></tr></table></figure>
+
+<p>修改文件夹用户组权限</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">chown -R www-data:www-data /var/www/wordpress</span><br></pre></td></tr></table></figure>
+
+
+<h3 id="2-Nginx"><a href="#2-Nginx" class="headerlink" title="2. Nginx"></a>2. Nginx</h3><h4 id="2-1-安装"><a href="#2-1-安装" class="headerlink" title="2.1 安装"></a>2.1 安装</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install nginx -y</span><br></pre></td></tr></table></figure>
+
+<p>当上面命令执行完，访问你服务器的 ip 出现以下则证明安装成功</p>
+<blockquote>
+<p><strong>Welcome to nginx!</strong></p>
+<p>If you see this page, the nginx web server is successfully installed and working. Further configuration is required.</p>
+<p>For online documentation and support please refer to <a href="http://nginx.org/">nginx.org</a>.<br>Commercial support is available at <a href="http://nginx.com/">nginx.com</a>.</p>
+<p><em>Thank you for using nginx.</em></p>
+</blockquote>
+<p>如果发现访问超时，请检测是否因为 防火墙(ufw) 或者 服务器提供商 关闭了80端口</p>
+<h4 id="2-2-配置"><a href="#2-2-配置" class="headerlink" title="2.2 配置"></a>2.2 配置</h4><p>首先复制一份默认配置，将下面命令中的 <code>&#123;your-domain&#125;</code> 更换为你自己的域名或者别的名字</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">cp /etc/nginx/sites-available/default /etc/nginx/sites-available/&#123;your-domain&#125;.conf</span><br></pre></td></tr></table></figure>
+
+<p>接着修改这份配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">vi /etc/nginx/sites-available/&#123;your-domain&#125;.conf</span><br></pre></td></tr></table></figure>
+
+<p>如果提示</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">bash: vi: <span class="built_in">command</span> not found.</span><br></pre></td></tr></table></figure>
+
+<p>则使用如下命令安装 Vim，安装完成后再接着使用上面的命令修改配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install vim</span><br></pre></td></tr></table></figure>
+
+<p>将配置修改成如下，如果没有使用域名则无需修改 <code>server_name</code> 字段</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">  listen 80;</span><br><span class="line">  listen [::]:80;</span><br><span class="line"></span><br><span class="line">  root /var/www/wordpress;</span><br><span class="line">  index index.php;</span><br><span class="line"></span><br><span class="line">  server_name &#123;you-domain&#125;;</span><br><span class="line">  </span><br><span class="line">  location / &#123;</span><br><span class="line">    try_files <span class="variable">$uri</span> <span class="variable">$uri</span>/ =404;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  location ~ \.php$ &#123;</span><br><span class="line">    include snippets/fastcgi-php.conf;</span><br><span class="line">    fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>fastcgi_pass</code> 这一项中的 <code>php7.4-fpm.sock</code> 需要通过如下命令安装</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install php-fpm</span><br></pre></td></tr></table></figure>
+
+<p>删除正在使用的默认的配置</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">rm /etc/nginx/sites-enabled/default</span><br></pre></td></tr></table></figure>
+
+<p>将修改好的配置加入到正在使用的配置中</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">ln -s /etc/nginx/sites-available/&#123;you-domain&#125;.conf /etc/nginx/sites-enabled/</span><br></pre></td></tr></table></figure>
+
+<p>测试配置是否正确</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nginx -t</span><br></pre></td></tr></table></figure>
+
+<p>如果出现如下则代表配置成功</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nginx: the configuration file /etc/nginx/nginx.conf syntax is ok</span><br><span class="line">nginx: configuration file /etc/nginx/nginx.conf <span class="built_in">test</span> is successful</span><br></pre></td></tr></table></figure>
+
+<p>重载配置以生效</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">nginx -s reload</span><br></pre></td></tr></table></figure>
+
+<p>此时去浏览器访问你的 ip 已经会出现如下提示：</p>
+<blockquote>
+<p>您的PHP似乎没有安装运行WordPress所必需的MySQL扩展。</p>
+</blockquote>
+<p>则还需要安装 <code>php-mysql</code></p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install php-mysql</span><br></pre></td></tr></table></figure>
+
+<p>此时距离完成就剩下安装数据库了</p>
+<h3 id="3-Mysql"><a href="#3-Mysql" class="headerlink" title="3. Mysql"></a>3. Mysql</h3><h4 id="3-1-安装"><a href="#3-1-安装" class="headerlink" title="3.1 安装"></a>3.1 安装</h4><figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">apt install mysql-server</span><br></pre></td></tr></table></figure>
+
+<p>安装完成后输入如下命令</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">mysql</span><br></pre></td></tr></table></figure>
+
+<p>如果出现如下则证明成功进入数据库</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Welcome to the MySQL monitor.  Commands end with ; or \g.</span><br><span class="line">Your MySQL connection id is 10</span><br><span class="line">Server version: 8.0.23-0ubuntu0.20.04.1 (Ubuntu)</span><br><span class="line"></span><br><span class="line">Copyright (c) 2000, 2021, Oracle and/or its affiliates.</span><br><span class="line"></span><br><span class="line">Oracle is a registered trademark of Oracle Corporation and/or its</span><br><span class="line">affiliates. Other names may be trademarks of their respective</span><br><span class="line">owners.</span><br><span class="line"></span><br><span class="line">Type <span class="string">&#x27;help;&#x27;</span> or <span class="string">&#x27;\h&#x27;</span> <span class="keyword">for</span> <span class="built_in">help</span>. Type <span class="string">&#x27;\c&#x27;</span> to clear the current input statement.</span><br><span class="line"></span><br><span class="line">mysql&gt;</span><br></pre></td></tr></table></figure>
+
+<p>然后创建数据库</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE DATABASE IF NOT EXISTS wordpress DEFAULT CHARACTER SET &#x3D; utf8mb4 DEFAULT COLLATE &#x3D; utf8mb4_general_ci;</span><br></pre></td></tr></table></figure>
+
+<p>提示如下则证明数据库创建成功</p>
+<figure class="highlight bash"><table><tr><td class="code"><pre><span class="line">Query OK, 1 row affected (0.12 sec)</span><br></pre></td></tr></table></figure>
+
+<p>创建一个数据库用户 <code>wordpress</code> 用来操作 上面创建的 <code>wordpress</code> 数据库，修改 <code>&#123;password&#125;</code> 为你自己的密码</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">CREATE USER &#39;wordpress&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;&#123;password&#125;&#39;;</span><br></pre></td></tr></table></figure>
+
+<p>给用户 <code>wordpress</code> 授予 数据库 <code>wordpress</code> 的所有权限</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">GRANT ALL PRIVILEGES ON wordpress.* TO &#39;wordpress&#39;@&#39;localhost&#39; WITH GRANT OPTION;</span><br></pre></td></tr></table></figure>
+
+<p>刷新权限</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">FLUSH PRIVILEGES;</span><br></pre></td></tr></table></figure>
+
+<p>退出数据库</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">exit</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-End"><a href="#4-End" class="headerlink" title="4. End"></a>4. End</h3><p>回到浏览器，刷新，点击 <strong>现在就开始！</strong> </p>
+<p>在下一个界面中，数据库名与用户名无需修改，只需要填入刚才设置的数据库密码点击提交即可</p>
+<p>再接下来的步骤交给著名的WordPress五分钟安装程序</p>
+]]></content>
+      <categories>
+        <category>Linux</category>
+      </categories>
+      <tags>
+        <tag>MySQL</tag>
+        <tag>Ubuntu</tag>
+        <tag>Nginx</tag>
+        <tag>Wordpress</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Java 中赋值表达式的返回值</title>
     <url>/articles/value-of-java-assignment-expression/</url>
     <content><![CDATA[<h1 id="起因"><a href="#起因" class="headerlink" title="起因"></a>起因</h1><p>写代码的时候脑子里想着</p>
