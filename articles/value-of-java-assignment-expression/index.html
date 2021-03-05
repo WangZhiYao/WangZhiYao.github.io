@@ -28,11 +28,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Java 中赋值表达式的返回值">
 <meta property="og:url" content="https://wangzhiyao.github.io/articles/value-of-java-assignment-expression/index.html">
-<meta property="og:site_name" content="339&#39;s">
+<meta property="og:site_name" content="339">
 <meta property="og:description" content="起因写代码的时候脑子里想着  如果 flag &#x3D; true 则 do something …  于是手上跟着敲出 123if (flag &#x3D; true) &amp;#123;    &#x2F;&#x2F; do something ...&amp;#125;  编译器没有报错，当时思想走神也丝毫没有发觉这是一段弱智代码，调试的时候发现 if 里的语句每次都执行了，觉得不太对劲，然而仍然没有发现这段弱智代码有问题，本着格物致知的精神">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-11-06T22:46:53.000Z">
-<meta property="article:modified_time" content="2021-03-05T14:11:44.827Z">
+<meta property="article:modified_time" content="2021-03-05T14:25:25.491Z">
 <meta property="article:author" content="339">
 <meta property="article:tag" content="Framework">
 <meta name="twitter:card" content="summary">
@@ -50,7 +50,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>Java 中赋值表达式的返回值 | 339's</title>
+<title>Java 中赋值表达式的返回值 | 339</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S7ZT5RGQ78"></script>
     <script data-pjax>
@@ -120,7 +120,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">339's</h1>
+      <h1 class="site-title">339</h1>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -292,7 +292,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="339's">
+      <meta itemprop="name" content="339">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -390,6 +390,11 @@
 
 
 
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -488,6 +493,23 @@ document.addEventListener('pjax:success', () => {
 
     <div class="pjax">
 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments('#disqus_thread', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey    : 'E4tQlBLRYvPBksrFVG4BdK5XlzipCmtcBf7u63mZjeFzIrjK31oUif8fAphQuR9f',
+      shortname : 'wangzhiyao-github-io',
+      url       : "https://wangzhiyao.github.io/articles/value-of-java-assignment-expression/",
+      identifier: "articles/value-of-java-assignment-expression/",
+      title     : "Java 中赋值表达式的返回值",
+    });
+  }, window.DisqusJS);
+});
+</script>
 
     </div>
 </body>

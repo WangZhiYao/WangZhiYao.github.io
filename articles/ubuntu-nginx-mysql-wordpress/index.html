@@ -28,11 +28,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="Ubuntu 下使用 Nginx + MySQL 搭建 Wordpress">
 <meta property="og:url" content="https://wangzhiyao.github.io/articles/ubuntu-nginx-mysql-wordpress/index.html">
-<meta property="og:site_name" content="339&#39;s">
+<meta property="og:site_name" content="339">
 <meta property="og:description" content="以 Ubuntu 20.04 为例，且假设你已获取到 root 权限或者使用的是 root 账号，Wordpress 与 MySQL 安装在同一台服务器上 1. Wordpress如果你已经使用其他工具下载好了 Wordpress 则可以使用 sftp 工具或者任意工具上传到服务器 &#x2F;var&#x2F;www 文件夹下，跳过1.1 1.1 下载1curl https:&#x2F;&#x2F;cn.wordpress.org&#x2F;l">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2021-02-05T03:54:17.000Z">
-<meta property="article:modified_time" content="2021-03-05T14:11:44.827Z">
+<meta property="article:modified_time" content="2021-03-05T14:25:25.491Z">
 <meta property="article:author" content="339">
 <meta property="article:tag" content="MySQL">
 <meta property="article:tag" content="Ubuntu">
@@ -53,7 +53,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>Ubuntu 下使用 Nginx + MySQL 搭建 Wordpress | 339's</title>
+<title>Ubuntu 下使用 Nginx + MySQL 搭建 Wordpress | 339</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S7ZT5RGQ78"></script>
     <script data-pjax>
@@ -123,7 +123,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">339's</h1>
+      <h1 class="site-title">339</h1>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -295,7 +295,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="339's">
+      <meta itemprop="name" content="339">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -472,6 +472,11 @@
 
 
 
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -570,6 +575,23 @@ document.addEventListener('pjax:success', () => {
 
     <div class="pjax">
 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments('#disqus_thread', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey    : 'E4tQlBLRYvPBksrFVG4BdK5XlzipCmtcBf7u63mZjeFzIrjK31oUif8fAphQuR9f',
+      shortname : 'wangzhiyao-github-io',
+      url       : "https://wangzhiyao.github.io/articles/ubuntu-nginx-mysql-wordpress/",
+      identifier: "articles/ubuntu-nginx-mysql-wordpress/",
+      title     : "Ubuntu 下使用 Nginx + MySQL 搭建 Wordpress",
+    });
+  }, window.DisqusJS);
+});
+</script>
 
     </div>
 </body>

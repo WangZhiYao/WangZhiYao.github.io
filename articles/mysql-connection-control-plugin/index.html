@@ -28,11 +28,11 @@
 <meta property="og:type" content="article">
 <meta property="og:title" content="MySQL 连接控制插件">
 <meta property="og:url" content="https://wangzhiyao.github.io/articles/mysql-connection-control-plugin/index.html">
-<meta property="og:site_name" content="339&#39;s">
+<meta property="og:site_name" content="339">
 <meta property="og:description" content="最近查看服务器日志发现一堆IP尝试爆破我的 MySQL，我的数据库端口并没有修改，问题并不大，但是让这些IP无代价的爆破生成一堆日志让我很烦，所以查了一下各种解决方案，有提到 Fail2Ban，但是我服务器已经装了 DenyHosts，所以并不想再引入一个功能上有重复的包，所以使用了MySQL的 Connection-Control 插件，下面是它官网的描述：">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2019-04-27T07:53:29.000Z">
-<meta property="article:modified_time" content="2021-03-05T14:11:44.827Z">
+<meta property="article:modified_time" content="2021-03-05T14:25:25.491Z">
 <meta property="article:author" content="339">
 <meta property="article:tag" content="MySQL">
 <meta name="twitter:card" content="summary">
@@ -50,7 +50,7 @@
     lang   : 'zh-CN'
   };
 </script>
-<title>MySQL 连接控制插件 | 339's</title>
+<title>MySQL 连接控制插件 | 339</title>
   
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-S7ZT5RGQ78"></script>
     <script data-pjax>
@@ -120,7 +120,7 @@
 
     <a href="/" class="brand" rel="start">
       <i class="logo-line"></i>
-      <h1 class="site-title">339's</h1>
+      <h1 class="site-title">339</h1>
       <i class="logo-line"></i>
     </a>
   </div>
@@ -292,7 +292,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="339's">
+      <meta itemprop="name" content="339">
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
@@ -437,6 +437,11 @@
 
 
 
+    
+  <div class="comments" id="disqus_thread">
+    <noscript>Please enable JavaScript to view the comments powered by Disqus.</noscript>
+  </div>
+  
 
 <script>
   window.addEventListener('tabs:register', () => {
@@ -535,6 +540,23 @@ document.addEventListener('pjax:success', () => {
 
     <div class="pjax">
 
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqusjs.css">
+
+<script>
+NexT.utils.loadComments('#disqus_thread', () => {
+  NexT.utils.getScript('https://cdn.jsdelivr.net/npm/disqusjs@1.3.0/dist/disqus.js', () => {
+    window.dsqjs = new DisqusJS({
+      api       : 'https://disqus.skk.moe/disqus/' || 'https://disqus.com/api/',
+      apikey    : 'E4tQlBLRYvPBksrFVG4BdK5XlzipCmtcBf7u63mZjeFzIrjK31oUif8fAphQuR9f',
+      shortname : 'wangzhiyao-github-io',
+      url       : "https://wangzhiyao.github.io/articles/mysql-connection-control-plugin/",
+      identifier: "articles/mysql-connection-control-plugin/",
+      title     : "MySQL 连接控制插件",
+    });
+  }, window.DisqusJS);
+});
+</script>
 
     </div>
 </body>
