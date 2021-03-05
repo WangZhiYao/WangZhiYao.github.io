@@ -7,3 +7,5 @@ comments: false
 ![](/images/404/404.jpg)
 
 <center>页面被吃掉了</center>
+
+<center>如果你连续见到本页面3次，将被关进小黑屋1个小时</center>
