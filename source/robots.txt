@@ -9,4 +9,4 @@ Disallow: /js/
 Disallow: /css/
 Disallow: /lib/
 
-Sitemap: https://339.im/sitemap.xml
+Sitemap: https://WangZhiYao.github.io/sitemap.xml
