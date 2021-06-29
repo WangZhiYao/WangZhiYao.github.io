@@ -1,6 +1,7 @@
 ---
 title: HPE Proliant Microserver Gen10 Plus
 date: 2020-04-10 22:21:43
+toc: true
 categories: 
  - Microserver Gen 10 Plus
 tags: 

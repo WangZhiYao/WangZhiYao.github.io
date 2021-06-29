@@ -1,6 +1,7 @@
 ---
 title: Microserver Gen10 Plus 安装 Proxmox VE
 date: 2020-04-19 23:39:14
+toc: true
 categories: 
  - Microserver Gen 10 Plus
 tags: 

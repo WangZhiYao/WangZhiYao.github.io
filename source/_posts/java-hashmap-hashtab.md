@@ -1,6 +1,7 @@
 ---
 title: Java HashMap 与 Hashtable 的区别
 date: 2020-03-19 21:57:11
+toc: true
 categories: 
  - Code
 tags: 

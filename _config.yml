@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: 339
+title: '339'
 subtitle: ''
 description: 'Less is more'
 keywords: Android
-author: 339
+author: '339'
 language: zh-CN
 timezone: 'Asia/Shanghai'
 
@@ -98,7 +98,7 @@ ignore:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: next
+theme: icarus
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

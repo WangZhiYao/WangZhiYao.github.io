@@ -8,6 +8,5 @@ Allow: /tags/
 Disallow: /js/
 Disallow: /css/
 Disallow: /lib/
-Disallow: /images/
 
 Sitemap: https://339.im/sitemap.xml

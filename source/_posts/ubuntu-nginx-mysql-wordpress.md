@@ -1,6 +1,7 @@
 ---
 title: Ubuntu 下使用 Nginx + MySQL 搭建 Wordpress
 date: 2021-02-05 11:54:17
+toc: true
 categories: 
  - Linux
 tags: 
@@ -106,7 +107,7 @@ apt install vim
 
 将配置修改成如下，如果没有使用域名则无需修改 `server_name` 字段
 
-```bash
+{% codeblock "{your-domain}.conf" lang:nginx %}
 server {
   listen 80;
   listen [::]:80;
@@ -115,7 +116,7 @@ server {
   index index.php;
 
   server_name {you-domain};
-  
+
   location / {
     try_files $uri $uri/ =404;
   }
@@ -125,9 +126,9 @@ server {
     fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
   }
 }
-```
+{% endcodeblock %}
 
-其中 `fastcgi_pass` 这一项中的 `php7.4-fpm.sock` 需要通过如下命令安装
+其中 `fastcgi_pass` 这一项中的 `php7.4-fpm.sock` 需要通过如下命令安装，系统不同，安装上的版本不同，记得**替换成你们对应的版本**
 
 ```bash
 apt install php-fpm
@@ -188,10 +189,117 @@ apt install mysql-server
 安装完成后输入如下命令
 
 ```bash
-mysql
+mysql_secure_installation
 ```
 
-如果出现如下则证明成功进入数据库
+如果显示：
+
+```bash
+Securing the MySQL server deployment.
+
+Enter password for user root:
+```
+
+如果在安装的时候设置过 `root` 的密码，则输入密码后再 `Enter`，否则直接 `Enter` 跳过
+
+接着：
+
+```bash
+VALIDATE PASSWORD COMPONENT can be used to test passwords
+and improve security. It checks the strength of password
+and allows the users to set only those passwords which are
+secure enough. Would you like to setup VALIDATE PASSWORD component?
+
+Press y|Y for Yes, any other key for No:
+```
+
+输入 `y` 然后 `Enter`
+
+```bash
+There are three levels of password validation policy:
+
+LOW    Length >= 8
+MEDIUM Length >= 8, numeric, mixed case, and special characters
+STRONG Length >= 8, numeric, mixed case, special characters and dictionary                  file
+
+Please enter 0 = LOW, 1 = MEDIUM and 2 = STRONG:
+```
+
+这里是设置密码强度校验，根据个人的密码强度选择即可
+
+```bash
+By default, a MySQL installation has an anonymous user,
+allowing anyone to log into MySQL without having to have
+a user account created for them. This is intended only for
+testing, and to make the installation go a bit smoother.
+You should remove them before moving into a production
+environment.
+
+Remove anonymous users? (Press y|Y for Yes, any other key for No) :
+```
+
+删除匿名用户，输入 `y` 然后 `Enter`
+
+```bash
+Success.
+
+
+Normally, root should only be allowed to connect from
+'localhost'. This ensures that someone cannot guess at
+the root password from the network.
+
+Disallow root login remotely? (Press y|Y for Yes, any other key for No) :
+```
+
+是否禁止 `root` 远程登录，一般选是，输入 `y` 然后 `Enter`
+
+```bash
+Success.
+
+By default, MySQL comes with a database named 'test' that
+anyone can access. This is also intended only for testing,
+and should be removed before moving into a production
+environment.
+
+
+Remove test database and access to it? (Press y|Y for Yes, any other key for No) :
+```
+
+是否删除测试数据库，选是，输入 `y` 然后 `Enter`
+
+```bash
+Success.
+
+ - Removing privileges on test database...
+Success.
+
+Reloading the privilege tables will ensure that all changes
+made so far will take effect immediately.
+
+Reload privilege tables now? (Press y|Y for Yes, any other key for No) :
+```
+
+是否立即重新加载权限，选是，输入 `y` 然后 `Enter`
+
+```bash
+Success.
+
+All done!
+```
+
+数据库初始化设置完成，输入以下命令进入数据库：
+
+```bash
+mysql -uroot -p
+```
+
+提示要输入密码：
+
+```bash
+Enter password:
+```
+
+输入前面设置的 `root` 的密码，然后 `Enter`，如果出现如下则证明成功进入数据库
 
 ```bash
 Welcome to the MySQL monitor.  Commands end with ; or \g.
@@ -211,7 +319,7 @@ mysql>
 
 然后创建数据库
 
-```mysql
+```sql
 CREATE DATABASE IF NOT EXISTS wordpress DEFAULT CHARACTER SET = utf8mb4 DEFAULT COLLATE = utf8mb4_general_ci;
 ```
 
@@ -223,25 +331,25 @@ Query OK, 1 row affected (0.12 sec)
 
 创建一个数据库用户 `wordpress` 用来操作 上面创建的 `wordpress` 数据库，修改 `{password}` 为你自己的密码
 
-```mysql
+```sql
 CREATE USER 'wordpress'@'localhost' IDENTIFIED BY '{password}';
 ```
 
 给用户 `wordpress` 授予 数据库 `wordpress` 的所有权限
 
-```mysql
+```sql
 GRANT ALL PRIVILEGES ON wordpress.* TO 'wordpress'@'localhost' WITH GRANT OPTION;
 ```
 
 刷新权限
 
-```mysql
+```sql
 FLUSH PRIVILEGES;
 ```
 
 退出数据库
 
-```mysql
+```sql
 exit
 ```
 

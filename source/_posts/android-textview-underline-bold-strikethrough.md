@@ -25,7 +25,7 @@ tags:
 
 * Paint.SUBPIXEL_TEXT_FLAG 亚像素级的抗锯齿
 
-```java
+{% codeblock "TextViewUtils.java" lang:java %}
 public class TextViewUtils {
 
     public static void addUnderLine(TextView textView) {
@@ -60,5 +60,4 @@ public class TextViewUtils {
         textView.setPaintFlags(textView.getPaintFlags() & (~paintFlag));
     }
 }
-```
-
+{% endcodeblock %}

@@ -1,6 +1,7 @@
 ---
 title: Java 中赋值表达式的返回值
 date: 2020-11-07 06:46:53
+toc: true
 categories: 
  - Java
 tags: 
@@ -46,7 +47,7 @@ while((len = in.read(buffer)) != -1) {
 
 # 结果
 
-赋值表达式的返回值是表达式中右边的值，`evaluation order`是从左到右也就是说：
+赋值表达式的返回值是表达式中右边的值，`evaluation order` 是从左到右也就是说：
 
 ```java
 int i = 2;
@@ -65,4 +66,4 @@ if (flag = true) {
 
 if 表达式中的 flag 每次都会被我设为 true 且返回值也是 boolean 类型所以编译器不会报错，然后进入 if 中执行
 
-这就是这次弱智事情的结果
+这就是这次弱智事情的总结

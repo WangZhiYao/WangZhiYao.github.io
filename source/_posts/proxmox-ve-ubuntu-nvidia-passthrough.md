@@ -1,6 +1,7 @@
 ---
 title: Proxmox VE 在 Ubuntu 中 N卡直通
 date: 2020-04-22 10:19:09
+toc: true
 categories: 
  - Microserver Gen 10 Plus
 tags:

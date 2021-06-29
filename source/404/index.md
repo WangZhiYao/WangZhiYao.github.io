@@ -1,10 +1,12 @@
 ---
 title: '404 Page not found'
 date: 2020-07-30 09:40:21
-comments: false
+comment: false
 ---
 
-![](/images/404/404.jpg)
+<div style="text-align:center">
+<img src="/images/404/404.jpg">
+</div>
 
 <center>页面被吃掉了</center>
 

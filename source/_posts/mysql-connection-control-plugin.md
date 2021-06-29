@@ -1,6 +1,7 @@
 ---
 title: MySQL 连接控制插件
 date: 2019-04-27 15:53:29
+toc: true
 categories: 
  - Linux
 tags: 
@@ -20,15 +21,15 @@ tags:
 
 ## 1.安装
 
-```mysql
-mysql> INSTALL PLUGIN CONNECTION_CONTROL SONAME 'connection_control.so';
-mysql> INSTALL PLUGIN CONNECTION_CONTROL_FAILED_LOGIN_ATTEMPTS SONAME 'connection_control.so';
+```sql
+INSTALL PLUGIN CONNECTION_CONTROL SONAME 'connection_control.so';
+INSTALL PLUGIN CONNECTION_CONTROL_FAILED_LOGIN_ATTEMPTS SONAME 'connection_control.so';
 ```
 
 ## 2.查看是是否安装与开启状态
 
-```mysql
-mysql> SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE PLUGIN_NAME LIKE 'connection%';
+```sql
+SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE PLUGIN_NAME LIKE 'connection%';
 ```
 输出类似如下：
 
@@ -41,8 +42,8 @@ mysql> SELECT PLUGIN_NAME, PLUGIN_STATUS FROM INFORMATION_SCHEMA.PLUGINS WHERE P
 
 ## 3.查看参数
 
-```mysql
-mysql> SHOW VARIABLES LIKE '%connection_control%';
+```sql
+SHOW VARIABLES LIKE '%connection_control%';
 ```
 输出类似如下：
 
@@ -60,45 +61,42 @@ mysql> SHOW VARIABLES LIKE '%connection_control%';
 
 ## 4.修改参数
 
-```mysql
-mysql> SET GLOBAL connection_control_failed_connections_threshold = 1;
-mysql> SET GLOBAL connection_control_max_connection_delay = 86400000;
-mysql> SET GLOBAL connection_control_min_connection_delay = 300000;
+```sql
+SET GLOBAL connection_control_failed_connections_threshold = 1;
+SET GLOBAL connection_control_max_connection_delay = 86400000;
+SET GLOBAL connection_control_min_connection_delay = 300000;
 ```
 
  **通过以上方式重新设置参数或者重启数据库会导致配置还原，同时，`CONNECTION_CONTROL_FAILED_LOGIN_ATTEMPTS` 中的数据也会被清空，当前控制连接的次数也会被重置**
 
 **建议通过在配置文件中的 `[mysqld]` 下加入以下内容的方式设置参数**，这样才能保证即使重启也不需要重新设置：
 
-```
+{% codeblock "mysqld" %}
 # Connection Control
 plugin-load-add = connection_control.so
 connection_control_failed_connections_threshold = 1
 connection_control_max_connection_delay = 86400000
 connection_control_min_connection_delay = 300000
-```
+{% endcodeblock %}
 
 ## 5.查看当前控制连接的次数
 
-```mysql
-mysql> SHOW GLOBAL STATUS LIKE 'Connection_control_delay_generated';
+```sql
+SHOW GLOBAL STATUS LIKE 'Connection_control_delay_generated';
 ```
 
 ## 6.查看所有登录操作失败的记录
 
-```mysql
-mysql> use information_schema;
-mysql> SELECT * FROM CONNECTION_CONTROL_FAILED_LOGIN_ATTEMPTS;
+```sql
+use information_schema;
+SELECT * FROM CONNECTION_CONTROL_FAILED_LOGIN_ATTEMPTS;
 ```
 
 ## 7.卸载插件
 
-```mysql
-mysql> UNINSTALL PLUGIN CONNECTION_CONTROL;
-mysql> UNINSTALL PLUGIN CONNECTION_CONTROL_FAILED_LOGIN_ATTEMPTS;
+```sql
+UNINSTALL PLUGIN CONNECTION_CONTROL;
+UNINSTALL PLUGIN CONNECTION_CONTROL_FAILED_LOGIN_ATTEMPTS;
 ```
 
 如果使用的是在配置文件中设置的参数，在卸载时也需要删除对应配置
-
-
-

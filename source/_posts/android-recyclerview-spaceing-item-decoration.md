@@ -9,7 +9,7 @@ tags:
 
 在 RecyclerView 中使用 ItemDecoration 重写 **getItemOffsets** 设置每个 Item 的间隔，支持各种 LayoutManager:
 
-```java
+{% codeblock "SpacingItemDecoration.java" lang:java %}
 public class SpacingItemDecoration extends RecyclerView.ItemDecoration {
 
     private int spanCount;
@@ -45,5 +45,4 @@ public class SpacingItemDecoration extends RecyclerView.ItemDecoration {
         }
     }
 }
-```
-
+{% endcodeblock %}
