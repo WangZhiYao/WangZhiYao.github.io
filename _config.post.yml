@@ -57,6 +57,11 @@ widgets:
         collapsed: true
         # Maximum level of headings to show (1-6)
         depth: 3
+    # Recent posts widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: recent_posts
     # Recommendation links widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
@@ -67,41 +72,19 @@ widgets:
             #Hexo: 'https://hexo.io'
             #Bulma: 'https://bulma.io'
             Bing Wallpapers: 'https://bing.339.im'
-    # Categories widget configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-        position: right
-        type: categories
-    # Recent posts widget configurations
-    -
-        # Where should the widget be placed, left sidebar or right sidebar
-        position: right
-        type: recent_posts
     # Archives widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
         position: right
         type: archives
+    # Categories widget configurations
+    -
+        # Where should the widget be placed, left sidebar or right sidebar
+        position: right
+        type: categories
     # Tags widget configurations
     -
         # Where should the widget be placed, left sidebar or right sidebar
         position: right
         type: tags
-    # Google FeedBurner email subscription widget configurations
-    #-
-        # Where should the widget be placed, left sidebar or right sidebar
-    #    position: left
-    #    type: subscribe_email
-        # Hint text under the email input
-    #    description: 
-        # Feedburner ID
-    #    feedburner_id: ''
-    # Google AdSense unit configurations
-    #-
-        # Where should the widget be placed, left sidebar or right sidebar
-    #    position: left
-    #    type: adsense
-        # AdSense client ID
-    #    client_id: ''
-        # AdSense AD unit ID
-    #    slot_id: ''
+
